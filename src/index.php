@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(isset($_POST["pays"])) {
         if ($_POST["pays"] == "Selectionnez un pays") {
-            $erreur["pays"] = "Veuillez selectionnez un pays";
+            $erreur["pays"] = "Veuillez selectionner un pays";
         }
     }
 
@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <select id="pays" name="pays" class="form-control mt-2">
                                 <option value="Selectionnez un pays"
                                     <?= (isset($_POST['pays']) && $_POST['pays'] == 'Selectionnez un pays') ? 'selected' : '' ?>>
-                                    -----Selectionnez un pays-----</option>
+                                    -----Selectionner un pays-----</option>
                                 <option value="Afghanistan"
                                     <?= (isset($_POST['pays']) && $_POST['pays'] == 'Afghanistan') ? 'selected' : '' ?>>
                                     Afghanistan</option>
