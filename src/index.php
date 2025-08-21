@@ -52,6 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    if(isset($_POST["pays"])) {
+        if ($_POST["pays"] == "Selectionnez un pays") {
+            $erreur["pays"] = "Veuillez selectionnez un pays";
+        }
+    }
+
     if(empty($erreur)){
         $mail = $_POST['email'];
         header("Location: pages/confirmation.php?email=$mail");
@@ -131,8 +137,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="col">
                         <div class="text-start">
                             <label for="pays">Pays</label><span
-                                style="color: red !important; display: inline; float: none;">*</span>
+                                style="color: red !important; display: inline; float: none;">*</span><span
+                                class="ms-2 text-danger fst-italic fw-light"><?= $erreur["pays"] ?? '' ?></span>
                             <select id="pays" name="pays" class="form-control mt-2">
+                                <option value="Selectionnez un pays"
+                                    <?= (isset($_POST['pays']) && $_POST['pays'] == 'Selectionnez un pays') ? 'selected' : '' ?>>
+                                    -----Selectionnez un pays-----</option>
                                 <option value="Afghanistan"
                                     <?= (isset($_POST['pays']) && $_POST['pays'] == 'Afghanistan') ? 'selected' : '' ?>>
                                     Afghanistan</option>
