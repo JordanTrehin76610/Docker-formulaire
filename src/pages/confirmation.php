@@ -1,3 +1,10 @@
+<?php session_start();
+
+ /*On utilise session_id() pour récupérer l'id de session s'il existe.
+     *Si l'id de session n'existe  pas, session_id() rnevoie une chaine
+     *de caractères vide*/
+$id_session = session_id(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,7 +24,7 @@
     <h1 class="text-center mb-3">Votre inscription vient d'être confirmé !</h1>
 
     <div class="w-75 text-center mx-auto mt-5">
-        <p class="mb-5">Un mail de confirmation vient de vous être envoyé à votre adresse mail. Vous pouvez désormais quitté la page web ou retourner à
+        <p class="mb-5">Un mail de confirmation vient de vous être envoyé à votre adresse mail: <b><?= $_GET['email']?></b>. Vous pouvez désormais quitté la page web ou retourner à
             l'accueil.
         </p>
         <a href="../index.php"><button type="button" class="btn btn-danger">Retour à l'accueil</button></a>
